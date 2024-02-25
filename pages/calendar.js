@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import axios from 'axios'; // Import axios for making HTTP requests
+import Navbar from './Navbar';
+import Head from 'next/head';
 // https://fullcalendar.io/docs/react
 export default function Calendar() {
 
@@ -26,11 +28,22 @@ export default function Calendar() {
   }, []);
 
   return (
+    <div>
+      <Head>
+            <link 
+                href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+                rel="stylesheet" 
+                integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+                crossorigin="anonymous">
+            </link>
+        </Head>
+    <Navbar />
     <FullCalendar
     plugins={[ dayGridPlugin ]}
     initialView="dayGridMonth"
     weekends={false}
     events={events}
-/>
+   />
+</div>
   )
 }
