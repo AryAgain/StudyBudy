@@ -1,3 +1,5 @@
+//import OpenAI from "openai";
+//const openai = new OpenAI();
 const express = require('express');
 const server = express();
 var bodyparser = require('body-parser')
@@ -10,6 +12,7 @@ require("dotenv").config();
  
 const Mongoose = require('mongoose');
 const SubtaskModel = require('./subtaskmodel');
+let today = new Date();
 
 Mongoose.connect(dburl)
     .then(() => console.log('Connected to MongoDB'))
@@ -27,14 +30,13 @@ server.post('/querygpt', async(req, res) => {
     try{
     console.log('Body Received=',req.body)
 
-    const completion = await openai.completions.create({
-        model: "text-davinci-003",
-        prompt: "Give me 5 names for toy",
-        // "Divide the following project into" + 4 + "milestone tasks :" + req.body.projectdescription + ". Strictly give output only in following format : \"1 : task 1 , 2 : task 2, 3 : task 3  \" . A task not more than 5 words",
-        max_tokens: 30,
-    }).then((response) =>{
-        return completion.choices[0].text;});
-        res.status(200).json({ completion });
+    const completion = await openai.chat.completions.create({
+        messages: [{ role: "user",
+        content: "I need to learn driving in one week starting today.  Give me output as a json of all subtasks of form subtask: date and date should be of form yyyy-mm-dd. nothing else apart from that." }],
+        model: "gpt-3.5-turbo-0125",
+      });
+      console.log(completion.choices[0]);
+    
     }
     catch(error){
         console.error("Error while testing GPT:", error); // Log the actual error message
