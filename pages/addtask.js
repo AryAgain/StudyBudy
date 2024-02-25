@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 
 export default function AddTask() {
   const router = useRouter();
-  var username = 'rs13';
+  var username = 'RITchie';
   const [projecttitle, setProjectTitle] = useState('');
   const [projectdescription, setProjectDescription] = useState('');
 

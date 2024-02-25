@@ -10,7 +10,7 @@ import interactionPlugin from "@fullcalendar/interaction" // needed for dayClick
 export default function Calendar() {
   const router = useRouter();
   const [events, setEvents] = useState([]);
-  var username = 'rs13';
+  var username = 'RITchie';
 
   const handleDateClick = (arg) => {
     router.push('/daycal');

@@ -7,7 +7,7 @@ import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  var username = 'rs13';
+  var username = 'RITchie';
   return (
     <>
       <Head>
