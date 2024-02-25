@@ -3,37 +3,27 @@ import axios from 'axios';
 import Head from 'next/head';
 import Link from 'next/link';
 import Navbar from './Navbar';
+import { useRouter } from 'next/router';
 
 export default function AddTask() {
+  const router = useRouter();
   var username = 'rs13';
-  const [projectTitle, setProjectTitle] = useState('');
-  const [projectDescription, setProjectDescription] = useState('');
-
-//   const handleSubmit = async (event) => {
-//     event.preventDefault();
-    
-//     try {
-//       const response = await axios.post('http://localhost:4200/addproject', {username, projectTitle, projectDescription});
-      
-//       console.log('Task added successfully:', response.data);
-//       // Optionally, you can reset the form fields after successful submission
-//       setProjectTitle('');
-//       setProjectDescription('');
-//     } catch (error) {
-//       console.error('Error adding task:', error);
-//     }
-//   };
+  const [projecttitle, setProjectTitle] = useState('');
+  const [projectdescription, setProjectDescription] = useState('');
 
 const handleSubmit = async (event) => {
     event.preventDefault();
-    
+    console.log(projecttitle,projectdescription);
     try {
-      const response = await axios.post('http://localhost:4200/addproject', {username, projectTitle, projectDescription});
+      const response = await axios.post('http://localhost:4200/addproject', {username, projecttitle, projectdescription});
       
       console.log('Task added successfully:', response.data);
-      // Optionally, you can reset the form fields after successful submission
+
       setProjectTitle('');
       setProjectDescription('');
+
+      router.push('/calendar');
+
     } catch (error) {
       console.error('Error adding task:', error);
     }
@@ -59,7 +49,7 @@ const handleSubmit = async (event) => {
                 class="form-control" 
                 id="exampleFormControlInput1" 
                 placeholder="name@example.com"
-                value={projectTitle}
+                value={projecttitle}
                 onChange={(e) => setProjectTitle(e.target.value)}/>
         </div>
         <div class="mb-3">
@@ -68,7 +58,7 @@ const handleSubmit = async (event) => {
                 class="form-control" 
                 id="exampleFormControlTextarea1" 
                 rows="3"
-                value={projectDescription}
+                value={projectdescription}
                 onChange={(e) => setProjectDescription(e.target.value)}></textarea>
         </div>
         <div class="col-auto">
