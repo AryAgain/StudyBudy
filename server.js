@@ -44,6 +44,15 @@ server.post('/querygpt', async(req, res) => {
 
 });
 
+server.post('/addproject', (req, res) => {
+
+    console.log('Body Received=',req.body)
+
+    
+    
+
+});
+
 
 // Defining a route for handling client communication
 server.post('/saveproject', (req, res) => {
