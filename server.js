@@ -16,10 +16,6 @@ Mongoose.connect(dburl)
 
 server.use(bodyparser.json());
 
-// const newConfig = new Configuration({
-//     apiKey: process.env.OPENAI_SECRET_KEY
-// });
-
 const openai = new OpenAIApi({
     apiKey: process.env.OPENAI_SECRET_KEY
 });
@@ -29,7 +25,7 @@ server.post('/querygpt', async(req, res) => {
     console.log('Body Received=',req.body)
 
     const completion = await openai.completions.create({
-        model: "gpt-3.5-turbo-instruct",
+        model: "text-davinci-003",
         prompt: "Give me 5 names for toy",
         // "Divide the following project into" + 4 + "milestone tasks :" + req.body.projectdescription + ". Strictly give output only in following format : \"1 : task 1 , 2 : task 2, 3 : task 3  \" . A task not more than 5 words",
         max_tokens: 30,

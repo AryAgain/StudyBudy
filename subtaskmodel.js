@@ -4,7 +4,8 @@ var SubtaskSchema = new Mongoose.Schema({
     username: {type:String,required:true},
     projecttitle: {type:String,required:true},
     projectdescription: {type:String},
-    subtaskname:{type:String,required:true}
+    subtaskname:{type:String,required:true},
+    subtaskdate:{type:String,required:true},
 })
 
 var SubtaskModel = Mongoose.model("subtasks",SubtaskSchema)
