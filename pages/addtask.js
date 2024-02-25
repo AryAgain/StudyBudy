@@ -49,7 +49,7 @@ const handleSubmit = async (event) => {
                 class="form-control" 
                 id="exampleFormControlInput1" 
                 placeholder="Prepare for Algebra Exam"
-                value={projectTitle}
+                value={projecttitle}
                 onChange={(e) => setProjectTitle(e.target.value)}/>
         </div>
         <div class="mb-3">

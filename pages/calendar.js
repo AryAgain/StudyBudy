@@ -38,10 +38,10 @@ export default function Calendar() {
             </link>
         </Head>
     <Navbar />
+    <br></br>
     <FullCalendar
     plugins={[ dayGridPlugin ]}
     initialView="dayGridMonth"
-    weekends={false}
     events={events}
    />
 </div>
