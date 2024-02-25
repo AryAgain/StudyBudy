@@ -1,29 +1,32 @@
 # StudyBudy: The AI-Powered ~~Study~~ Life Planner
-Learn smarter, not harder!
+Learn smarter, not harder!   
 Input anything you want to learn and get a custom study plan in an interactive beautiful calendar.
 Your AI study planner in a snap! 
 
 ## Getting Started
-- Install the dependencies:
+- Install the dependencies (one by one inside frontend and backend directory), using this command :
 ```bash
 npm install
 ```
-- Create .env file in the root directory and add OPENAI API key
+- Create .env file in the root directory(of backend) and add OPENAI API key:
+```bash
+OPENAI_SECRET_KEY="yourveryverysecretkey"
+```
 
--First, run backend server using :
+- First, run backend server using (inside backend directory) :
 
 ```bash
 node server.js
 ```
 
-- Then run frontend using the following command:
+- Then run frontend using the following command (inside backend directory):
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result and enjoy the experience.
 
-
+---
 
 ### Inspiration
 Being a student often means juggling between studying and life's many demands. The idea for StudyBudy stemmed from my personal experiences with the overwhelming nature of managing academic and personal life. We wanted to create a tool that not only simplifies study planning but also adapts to the unique needs of each student.
