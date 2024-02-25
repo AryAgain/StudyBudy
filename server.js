@@ -56,7 +56,7 @@ server.post('/addproject', async(req, res) => {
         const completion = await openai.chat.completions.create({
             messages: [{ role: "user",
             content: `My Task is ${req.body.projecttitle}. Description is ${req.body.projectdescription}.  Give me output as a list of json for all subtasks of form {subtaskname, date} and date should be of form yyyy-mm-dd. Today's date is ${today}. nothing else apart from that.` }],
-            model: "gpt-3.5-turbo-0125",
+            model: "gpt-4",
           });
 
           fetched_subtasks = completion.choices[0].message.content
