@@ -46,10 +46,46 @@ server.post('/querygpt', async(req, res) => {
 
 });
 
-server.post('/addproject', (req, res) => {
+server.post('/addproject', async(req, res) => {
 
-    console.log('Body Received=',req.body)
+    try{
+        console.log('Body Received=',req.body)
+    
+        const completion = await openai.chat.completions.create({
+            messages: [{ role: "user",
+            content: "I need to learn driving in one week starting today.  Give me output as a list of json for all subtasks of form {subtaskname, date} and date should be of form yyyy-mm-dd. nothing else apart from that." }],
+            model: "gpt-3.5-turbo-0125",
+          });
 
+          fetched_subtasks = completion.choices[0].message.content
+          console.log(fetched_subtasks);
+          console.log(fetched_subtasks.length);
+
+        //   for(var i=0;i<fetched_subtasks.length;i++){
+        //     datatoinsert = {username:req.body.username,
+        //         projecttitle: req.body.projecttitle,
+        //         projectdescription: req.body.projectdescription,
+        //         subtaskname: fetched_subtasks[i].subtaskname,
+        //         subtaskdate: fetched_subtasks[i].date
+        //     }
+        //     console.log("inserted data", datatoinsert);
+
+        //     var Subtaskdata = new SubtaskModel(datatoinsert) 
+
+        //     Subtaskdata.save()
+        //   }
+          
+          res.status(200).json({
+            message: 'Subtasks saved and fetched',
+            data: fetched_subtasks
+            });
+        
+        }
+        catch(error){
+            console.error("Error while testing GPT:", error); // Log the actual error message
+            res.status(500).json({ error: 'Internal Server Error' });
+        }    
+        return
     
     
 
