@@ -58,22 +58,25 @@ server.post('/addproject', async(req, res) => {
           });
 
           fetched_subtasks = completion.choices[0].message.content
-          console.log(fetched_subtasks);
-          console.log(fetched_subtasks.length);
+          const parsedSubtasks = JSON.parse(fetched_subtasks);
+          console.log(parsedSubtasks);
+          const typeOfpasSubtasks = typeof parsedSubtasks;
+          console.log(typeOfpasSubtasks);
+          console.log(parsedSubtasks.length);
 
-        //   for(var i=0;i<fetched_subtasks.length;i++){
-        //     datatoinsert = {username:req.body.username,
-        //         projecttitle: req.body.projecttitle,
-        //         projectdescription: req.body.projectdescription,
-        //         subtaskname: fetched_subtasks[i].subtaskname,
-        //         subtaskdate: fetched_subtasks[i].date
-        //     }
-        //     console.log("inserted data", datatoinsert);
+          for(var i=0;i<parsedSubtasks.length;i++){
+            datatoinsert = {username:req.body.username,
+                projecttitle: req.body.projecttitle,
+                projectdescription: req.body.projectdescription,
+                subtaskname: parsedSubtasks[i].subtaskname,
+                subtaskdate: parsedSubtasks[i].date
+            }
+            console.log("inserted data", datatoinsert);
 
-        //     var Subtaskdata = new SubtaskModel(datatoinsert) 
+            var Subtaskdata = new SubtaskModel(datatoinsert) 
 
-        //     Subtaskdata.save()
-        //   }
+            Subtaskdata.save()
+          }
           
           res.status(200).json({
             message: 'Subtasks saved and fetched',
