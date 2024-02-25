@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
+//import timeGridPlugin from '@fullcalendar/timegrid'
 import axios from 'axios'; // Import axios for making HTTP requests
 import Navbar from './Navbar';
 import Head from 'next/head';
@@ -12,9 +13,9 @@ export default function Calendar() {
   const [events, setEvents] = useState([]);
   var username = 'rs13';
 
-  const handleDateClick = (arg) => {
-    router.push('/daycal');
-  }
+//   const handleDateClick = (arg) => {
+//     router.push('/daycal');
+//   }
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -47,8 +48,8 @@ export default function Calendar() {
     <br></br>
     <FullCalendar
     plugins={[ dayGridPlugin, interactionPlugin  ]}
-    dateClick={handleDateClick}
-    initialView="dayGridMonth"
+    //dateClick={handleDateClick}
+    initialView="dayGridDay"
     events={events}
    />
 </div>
