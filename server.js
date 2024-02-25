@@ -12,7 +12,7 @@ require("dotenv").config();
  
 const Mongoose = require('mongoose');
 const SubtaskModel = require('./subtaskmodel');
-let today = new Date();
+let today = new Date().toISOString().split('T')[0];;
 
 Mongoose.connect(dburl)
     .then(() => console.log('Connected to MongoDB'))
@@ -50,10 +50,12 @@ server.post('/addproject', async(req, res) => {
 
     try{
         console.log('Body Received=',req.body)
-    
+        var text = `My Task is ${req.body.projecttitle}. Description is ${req.body.projectdescription}.  Give me output as a list of json for all subtasks of form {subtaskname, date} and date should be of form yyyy-mm-dd. Today's date is ${today}. nothing else apart from that.`
+        console.log(text);
+
         const completion = await openai.chat.completions.create({
             messages: [{ role: "user",
-            content: "I need to learn driving in one week starting today.  Give me output as a list of json for all subtasks of form {subtaskname, date} and date should be of form yyyy-mm-dd. nothing else apart from that." }],
+            content: `My Task is ${req.body.projecttitle}. Description is ${req.body.projectdescription}.  Give me output as a list of json for all subtasks of form {subtaskname, date} and date should be of form yyyy-mm-dd. Today's date is ${today}. nothing else apart from that.` }],
             model: "gpt-3.5-turbo-0125",
           });
 
