@@ -52,19 +52,14 @@ export default function Home() {
         </div>
 
         <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        <Link href="/addtask" className={styles.card}>
             <h2>
-              Docs <span>-&gt;</span>
+              Add Task <span>-&gt;</span>
             </h2>
             <p>
-              Find in-depth information about Next.js features and&nbsp;API.
+              To add new study target.
             </p>
-          </a>
+          </Link>
 
          <Link href="/calendar" className={styles.card}>
             
