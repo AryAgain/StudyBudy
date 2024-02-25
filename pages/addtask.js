@@ -58,21 +58,22 @@ const handleSubmit = async (event) => {
                 type="text" 
                 class="form-control" 
                 id="exampleFormControlInput1" 
-                placeholder="name@example.com"
+                placeholder="Prepare for Algebra Exam"
                 value={projectTitle}
                 onChange={(e) => setProjectTitle(e.target.value)}/>
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Add a Project description</label>
             <textarea 
-                class="form-control" 
+                class="form-control"
+                placeholder="Algebra mid-term exam on 13th March. Following is the syllabus: details" 
                 id="exampleFormControlTextarea1" 
                 rows="3"
                 value={projectDescription}
                 onChange={(e) => setProjectDescription(e.target.value)}></textarea>
         </div>
         <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">Submit Project</button>
+            <button type="submit" class="btn btn-primary mb-3">Build Schedule</button>
         </div>
         </form>
     </div>

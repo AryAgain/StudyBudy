@@ -30,8 +30,8 @@ export default function Home() {
             >
               By{" "}
               <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
+                src="/smalllogo.webp"
+                alt="Our Logo"
                 className={styles.vercelLogo}
                 width={100}
                 height={24}
@@ -44,15 +44,29 @@ export default function Home() {
         <div className={styles.center}>
           <Image
             className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
+            src="/logo.webp"
+            alt="Our Logo"
+            width={300}
+            height={300}
             priority
           />
         </div>
 
         <div className={styles.grid}>
+        <a
+            href="/"
+            className={styles.card}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {/* <h2>
+              Deploy <span>-&gt;</span>
+            </h2>
+            <p>
+              Instantly deploy your Next.js site to a shareable URL
+              with&nbsp;Vercel.
+            </p> */}
+          </a>
         <Link href="/addtask" className={styles.card}>
             <h2>
               Add Task <span>-&gt;</span>
@@ -65,40 +79,26 @@ export default function Home() {
          <Link href="/calendar" className={styles.card}>
             
               <h2>
-                Calendar <span>-&gt;</span>
+                View Calendar <span>-&gt;</span>
               </h2>
               <p>
-                View your Calendar!
+                View your Study Schedule!
               </p>
           </Link>
 
           <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="/"
             className={styles.card}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h2>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
+            {/* <h2>
               Deploy <span>-&gt;</span>
             </h2>
             <p>
               Instantly deploy your Next.js site to a shareable URL
               with&nbsp;Vercel.
-            </p>
+            </p> */}
           </a>
         </div>
       </main>
