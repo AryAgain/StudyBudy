@@ -2,6 +2,7 @@ const express = require('express');
 const server = express();
 var bodyparser = require('body-parser')
 const port = 4200;
+const cors = require('cors'); // Import the cors middleware
 var dburl = 'mongodb://localhost:27017/BrickHack'
 const OpenAIApi = require("openai"); 
 const readlineSync = require("readline-sync"); 
@@ -13,6 +14,8 @@ const SubtaskModel = require('./subtaskmodel');
 Mongoose.connect(dburl)
     .then(() => console.log('Connected to MongoDB'))
     .catch(error => console.error('Error connecting to MongoDB:', error));
+
+server.use(cors());
 
 server.use(bodyparser.json());
 
